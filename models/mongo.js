@@ -13,7 +13,7 @@ mongoose.connect(url).then(() => {
 
 // Schema for pet collection
 const PetSchema = {
-    name: {
+    p_name: {
         type:String,
         required:true
     },
@@ -22,7 +22,16 @@ const PetSchema = {
         required:true,
         enum: ['dog','cat']
     },
-    age: {
+    sex:{
+        type:String,
+        required:true,
+        enum: ['m','f']
+    },
+    age_m: {
+        type:Number,
+        required:true
+    },
+    age_y: {
         type:Number,
         required:true
     },
@@ -36,11 +45,15 @@ const PetSchema = {
         enum:['available','adopted'],
         default: 'available'
     },
-    image:{
+    img_url:{
         type:String,
     },
-    owner: {
+    o_name: {
         type: String,
+        required:true
+    },
+    o_num: {
+        type: Number,
         required:true
     },
     createdAt: {
