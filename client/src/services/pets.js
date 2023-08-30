@@ -6,4 +6,10 @@ const addPet = petObj =>{
     return axios.post(baseUrl,petObj)
 }
 
-export default addPet
+const getPets = () => {
+    return axios.get(baseUrl)
+}
+
+
+const services = {addPet,getPets}
+export default services 

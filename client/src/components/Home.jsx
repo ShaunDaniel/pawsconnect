@@ -15,7 +15,7 @@ const Home = () => {
           </button></Link>
             
         </div>
-        <img className="object-contain align-bottom relative md:top-7 " src="./hero.png" alt="" srcset="" />
+        <img className="object-contain align-bottom relative md:top-7 " src="./hero.png" alt="" srcSet="" />
       </div>
   );
 };

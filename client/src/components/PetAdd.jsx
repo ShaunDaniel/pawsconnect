@@ -1,19 +1,12 @@
 import { useState } from "react";
-import addPet from "../services/pets"
+import services from "../services/pets"
+import { useNavigate } from "react-router-dom";
 
 const PetAdd = (props) => {
-  const [pets, setPets] = useState([
-    {
-      p_name: "",
-      type: "",
-      description: "",
-      age_m: "",
-      age_y: "",
-      o_name: "",
-      o_num: "",
-      img_url: "",
-    },
-  ]);
+
+  const [petPic,setPetPic] = useState()
+  
+  const navigate = useNavigate()
 
   const [newPet, setNewPet] = useState(
     {
@@ -23,8 +16,7 @@ const PetAdd = (props) => {
       age_m: "",
       age_y: "",
       o_name: "",
-      o_num: "",
-      img_url: "",
+      o_num: "9425515243",
     },
   );
 
@@ -35,9 +27,16 @@ const PetAdd = (props) => {
   };
 
   const handleFormSubmit = (e) => {
-    setNewPet({...newPet,status:"available",o_name:"Shaun",o_num:123,img_url:"/images/123.jpg"})
-    addPet(newPet).then((result) => {
-        console.log(result)
+    let formData = new FormData()
+    for(let key in newPet){
+      formData.append(key,newPet[key])
+    }
+    formData.append("img_url",`${newPet.p_name}_${newPet.o_num}.jpg`)
+    formData.append("img_upload",petPic)
+    services.addPet(formData).then((result) => {
+      if(result){
+        navigate('/pets')
+      }
     }).catch((err) => {
         console.log(err)
     });
@@ -52,7 +51,7 @@ const PetAdd = (props) => {
         </div>
         
         <div className="w-4/5 md:w-1/3 max-w-auto">
-          <form className="bg-amber-300 shadow-md rounded px-8 pt-6 pb-8 mb-4" method="post">
+          <form className="bg-amber-300 shadow-md rounded px-8 pt-6 pb-8 mb-4" method="post" encType="multipart/form-data">
             <div className="mb-4">
                 <label
                 className="block text-gray-700 font-body text-md font-bold mb-2 bg-amber-100 p-2 rounded-lg"
@@ -188,7 +187,11 @@ const PetAdd = (props) => {
               <input
                 type="file"
                 id="img_upload"
+                name="img_upload"
                 className="text-sm bg-white w-full p-2 rounded-xl mb-2"
+                onChange={(e)=>{
+                  setPetPic(e.target.files[0])
+                }}
               />
             </div>
             <div className="flex items-center justify-between">
