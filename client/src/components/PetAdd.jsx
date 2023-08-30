@@ -1,9 +1,22 @@
 import { useState } from "react";
 import services from "../services/pets"
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+
 
 const PetAdd = (props) => {
 
+  const [pets, setPets] = useState([{}]);
+  
+  useEffect(() => {
+     console.log("inside effect");
+     services.getPets().then((result) => {
+         setPets(result.data);
+       })
+       .catch((error) => {
+         console.error(error);
+       });
+   }, []);
   const [petPic,setPetPic] = useState()
   
   const navigate = useNavigate()
