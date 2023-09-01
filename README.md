@@ -1,7 +1,12 @@
 # pawsconnect
 
+This is a personal project under development, So some features may not work as expected.
 
- animal adoption project - currently under development
+This is a personal project that I'm currently working on as a part of my journey learning the MERN stack. This website allows users to register themselves & add animals (dogs/cats) available for adoption with their contact number. Similarly, users who wish to adopt a pet can contact people who've added pets to the site. 
+
+Once I have enough confidence with the workflow of the site, I'll deploy it.
+
+Some screenshots-
 
 ## Homepage- 
 ![image](https://github.com/ShaunDaniel/pawsconnect/assets/73394707/850f9377-67c4-421a-91e0-025570d1d31d)
