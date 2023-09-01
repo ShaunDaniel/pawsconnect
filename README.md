@@ -1,4 +1,5 @@
-# pawsconnect
+ ![Screenshot_2023-09-01_183855-removebg-preview(1)](https://github.com/ShaunDaniel/pawsconnect/assets/73394707/7b93b6d7-eb5f-48a1-9fa5-dcbfee221139)
+
 
 This is a personal project under development, So some features may not work as expected.
 
