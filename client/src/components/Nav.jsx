@@ -10,8 +10,14 @@ const Nav = () => {
       <div className="m-5 md:m-10 flex items-center px-5 rounded-full md:mx-5 lg:mx-7 text-3xl h-2/5 self-center font-semibold font-display bg-amber-300 text-black">
         <Link to="/">pawsconnect</Link>
       </div>
-      <div className="m-5 md:m-10 flex items-center px-5 rounded-full md:mx-5 lg:mx-7 text-3xl h-2/5 self-center font-semibold font-display bg-amber-300 text-black">
+
+      <div className="flex justify-between">
+      <div className="m-5 md:m-10 flex items-center px-5 rounded-full md:mx-5 lg:mx-7 text-xl md:text-3xl h-2/5 self-center font-semibold font-display bg-amber-300 text-black">
         <Link to="/petadd">add a pet!</Link>
+      </div>
+      <div className="m-5 md:m-10 flex items-center px-5 rounded-full md:mx-5 lg:mx-7 text-xl md:text-3xl h-2/5 self-center font-semibold font-display bg-amber-300 text-black">
+        <Link to="/login">login</Link>
+      </div>
       </div>
 
       </div>

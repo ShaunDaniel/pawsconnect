@@ -5,12 +5,16 @@ import { useEffect } from "react";
 
 
 const PetAdd = (props) => {
-
+  const navigate = useNavigate()
   const [pets, setPets] = useState([{}]);
   
   useEffect(() => {
-     console.log("inside effect");
-     services.getPets().then((result) => {
+    console.log("inside")
+    console.log(props)
+    if(!props.isAuthenticated){
+      navigate('/login')
+    }
+    services.getPets().then((result) => {
          setPets(result.data);
        })
        .catch((error) => {
@@ -19,7 +23,6 @@ const PetAdd = (props) => {
    }, []);
   const [petPic,setPetPic] = useState()
   
-  const navigate = useNavigate()
 
   const [newPet, setNewPet] = useState(
     {

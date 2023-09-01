@@ -15,33 +15,32 @@ mongoose.connect(url).then(() => {
 const PetSchema = {
     p_name: {
         type:String,
-        required:true
+        required: true
     },
     type: {
         type:String,
-        required:true,
-        enum: ['dog','cat']
+        enum: ['dog','cat'],
+        required: true
     },
     sex:{
         type:String,
-        required:true,
-        enum: ['m','f']
+        enum: ['m','f'],
+        required: true
     },
     age_m: {
         type:Number,
-        required:true
+        required: true
     },
     age_y: {
         type:Number,
-        required:true
+        required: true
     },
     description: {
         type:String,
-        required:true
+        required: true
     },
     status: {
         type:String,
-        required:true,
         enum:['available','adopted'],
         default: 'available'
     },
@@ -50,11 +49,9 @@ const PetSchema = {
     },
     o_name: {
         type: String,
-        required:true
     },
     o_num: {
         type: Number,
-        required:true
     },
     createdAt: {
         type: Date,
@@ -66,15 +63,15 @@ export const Pets = mongoose.model("Pet",PetSchema)
 
 // Schema for user collection 
 const UserSchema = {
-    name:{
+    u_name:{
         type: String,
         required: true
     },
-    username:{
-        type:String,
-        required:true
+    age:{
+        type: Number,
+        required: true
     },
-    email:{
+    username:{
         type:String,
         required:true
     },
@@ -84,6 +81,15 @@ const UserSchema = {
     },
     contact:{
         type:Number,
+        required:true
+    },
+    gender:{
+        type:String,
+        enum:['m','f','t','x'],
+        required:true
+    },
+    city:{
+        type:String,
         required:true
     },
     createdAt: {

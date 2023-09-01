@@ -1,16 +1,18 @@
-import React, { useEffect, useState } from "react";
 import "./App.css";
-import axios from "axios";
 import {Routes, Route} from "react-router-dom"
-import services from "./services/pets";
 import Home from "./components/Home";
 import Nav from "./components/Nav";
 import Login from "./components/Login"
+import Register from "./components/Register"
 import Pets from "./components/Pets";
 import PetAdd from "./components/PetAdd";
 
 
+
 function App() {
+
+
+
   return (
     
     <div className="App">
@@ -19,8 +21,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Home/>}></Route>
           <Route path="/pets" element={<Pets/>}></Route>
-          <Route path="/petadd" element={<PetAdd/>}></Route>
+          <Route path="/petadd" element={<PetAdd isAuthenticated={true}/>} ></Route>
           <Route path="/login" element={<Login/>}></Route>
+          <Route path="/register" element={<Register/>}></Route>
         </Routes>
       </div>
     </div>
