@@ -103,7 +103,7 @@ const PetAdd = (props) => {
                   Select..
                 </option>
                 <option value="cat">Cat</option>
-                <option value="cat">Dog</option>
+                <option value="dog">Dog</option>
               </select>
 
               <label

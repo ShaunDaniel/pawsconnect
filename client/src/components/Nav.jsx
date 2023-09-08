@@ -53,7 +53,7 @@ const Nav = (props) => {
                 <Link to={`/user/${user._id}`}>profile</Link>
                 </li>
                 <li className="my-2 bg-amber-300 rounded-full w-auto mx-3 px-3 py-2">
-                <Link to={`/mypets/${user._id}`}>my pets</Link>
+                <Link to={`/mypets`}>my pets</Link>
                 </li>
                 <li className="my-2 bg-amber-300 rounded-full w-auto mx-3 px-5 py-2">
                 <button className="logout" onClick={()=>logout()}>logout</button>
