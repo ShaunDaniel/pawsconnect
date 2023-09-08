@@ -39,6 +39,14 @@ const PetSchema = {
         type:String,
         required: true
     },
+    vaccinated: {
+        type:Boolean,
+        required: true
+    },
+    dewormed: {
+        type:Boolean,
+        required: true
+    },
     status: {
         type:String,
         enum:['available','adopted'],

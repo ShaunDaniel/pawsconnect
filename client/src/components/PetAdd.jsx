@@ -9,7 +9,6 @@ const PetAdd = (props) => {
   const [pets, setPets] = useState([{}]);
   
   useEffect(() => {
-    console.log("inside")
     console.log(props)
     if(!localStorage.getItem('u_id')){
       navigate('/login')
@@ -30,9 +29,11 @@ const PetAdd = (props) => {
       type: "",
       description: "",
       age_m: "",
+      vaccinated: false,
+      dewormed: false,
       age_y: "",
-      o_name: "",
-      o_num: "9425515243",
+      o_name: `${localStorage.getItem('u_name')}`,
+      o_num: `${localStorage.getItem('contact')}`,
     },
   );
 
@@ -134,6 +135,7 @@ const PetAdd = (props) => {
                 Pet Age
               </label>
             </div>
+            
 
             <div className="flex mb-6 items-baseline pl-2">
               <label
@@ -181,6 +183,54 @@ const PetAdd = (props) => {
               />
             </div>
 
+            <div className="block text-gray-700  text-md font-bold mb-2 bg-amber-300 rounded-md  p-1">
+              <label
+                 className="block text-gray-700  text-md font-bold mb-2 bg-amber-100 p-2 rounded-lg"
+                 htmlFor="petname"
+              >
+                Medical Information
+              </label>
+            </div>
+            
+
+            <div className="flex justify-center">
+            <div className="flex mb-6 items-baseline pl-2">
+              <label
+                htmlFor="dewormed"
+                className="block text-gray-700  text-sm font-bold mb-2  py-1 px-3 rounded-lg bg-amber-100"
+              >
+                Dewormed?
+              </label>
+              <input
+                type="checkbox"
+                id="dewormed"
+                name="dewormed"
+                className="block bg-white mx-5"
+                onChange={()=>{setNewPet({...newPet, dewormed:!newPet.dewormed})}}
+                defaultValue={""}
+              >
+              </input>
+            </div>
+
+            <div className="flex flex-row mb-6 items-baseline pl-2">
+
+              <label
+                htmlFor="vaccinated"
+                className="block text-gray-700  text-sm font-bold mb-2  py-1 px-3 rounded-lg bg-amber-100"
+              >
+                Vaccinated?
+              </label>
+              <input
+                type="checkbox"
+                id="vaccinated"
+                name="vaccinated"
+                className="block bg-white mx-5"
+                onChange={()=>{setNewPet({...newPet, vaccinated:!newPet.vaccinated})}}
+                defaultValue={""}
+              >
+              </input>
+              </div>
+              </div>
             <div className="block text-gray-700  text-md font-bold mb-2 bg-amber-100 rounded-lg p-1">
               <p className="mx-2">Description</p>
             </div>

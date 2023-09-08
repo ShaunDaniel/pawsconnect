@@ -28,6 +28,8 @@ petRouter.post("/",upload.single('img_upload'),(req,res)=>{
         sex:req.body.sex,
         age_m:req.body.age_m,
         age_y:req.body.age_y,
+        vaccinated:req.body.vaccinated,
+        dewormed:req.body.dewormed,
         description:req.body.description,
         status:req.body.status,
         o_name: req.body.o_name,

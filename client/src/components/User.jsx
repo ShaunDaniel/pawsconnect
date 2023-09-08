@@ -52,15 +52,15 @@ const User = (props) => {
     }
     return(
         <div className="h-screen flex items-center">
-            <div className="flex flex-col-reverse md:flex-row w-4/5 md:w-1/2  h-4/5 md:h-2/3 bg-amber-300 rounded-xl mx-auto p-10">
-                <div className="info w-full md:w-1/2">
+            <div className="flex flex-col-reverse md:flex-row  gap-5 w-4/5 md:w-1/2 h-4/5 md:h-2/3 bg-amber-300 rounded-xl mx-auto p-10">
+                <div className="flex flex-col md:px-5 my-auto text-center md:text-left w-full md:w-1/2 h-full bg-white rounded-xl justify-center">
             <ProfileItem text={userDisplay.u_name} label={"Name"}></ProfileItem>
             <ProfileItem text={userDisplay.username} label={"Username"}></ProfileItem>
             <ProfileItem text={userDisplay.contact} label={"Mobile"}></ProfileItem>
             <ProfileItem text={userDisplay.city} label={"City"}></ProfileItem>
             </div>
 
-            <img className="h-full w-1/2 rounded-xl object-contain self-center" src={`http://localhost:3001/users/${userDisplay.img_url}`} alt="" srcSet="" />
+            <img className="h-full w-full md:w-1/2 rounded-xl object-cover self-center" src={`http://localhost:3001/users/${userDisplay.img_url}`} alt="" srcSet="" />
             </div>
         </div>
     )

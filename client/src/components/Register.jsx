@@ -35,6 +35,8 @@ const Register = () => {
     services.addUser(formData).then((result) => {
       if(result){
         localStorage.setItem("u_id",result.data._id.toString())
+        localStorage.setItem("username",result.data.username)
+        localStorage.setItem("contact",result.data.contact)
         console.log(result)
         navigate('/')
         window.location.reload();
