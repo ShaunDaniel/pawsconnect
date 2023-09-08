@@ -95,7 +95,10 @@ const UserSchema = {
     createdAt: {
         type: Date,
         default: Date.now
-    }
+    },
+    img_url:{
+        type:String,
+    },
 }
 
 export const Users = mongoose.model("User",UserSchema)

@@ -1,27 +1,49 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import services from "../services/pets";
 
 
-const formHandler = (e) => { };
+
 
 const Register = () => {
+
+  const [newUser,setNewUser] = useState({})
+  const [profilePic,setProfilePic] = useState()
+
+
+
   const navigate = useNavigate();
 
-  const [user,setUser] = useState({})
 
+
+  const getExt = (filename) => {
+    return filename.split('.').pop()
+  }
 
   const handleInput = (e) => {
-    setUser({...user,[e.target.name]: e.target.value})
+    setNewUser({...newUser,[e.target.name]: e.target.value})
   }
-  const handleRegister = () => {
-      services.addUser(user).then((result) => {
-      console.log(result)
-      alert("User registered!")
-      }).catch((err) => {
-        console.error(err)
-      });
+  const handleRegister = (e) => {
+   
+    let formData = new FormData()
+    for(let key in newUser){
+      formData.append(key,newUser[key])
+    }
+    formData.append("img_url",`${newUser.username}_${newUser.contact}.${getExt(profilePic.name)}`)
+    formData.append("img_upload",profilePic)
+
+    services.addUser(formData).then((result) => {
+      if(result){
+        localStorage.setItem("u_id",result.data._id.toString())
+        console.log(result)
+        navigate('/')
+        window.location.reload();
+      }
+    }).catch((err) => {
+        console.log(err)
+    });
   };
+
 
   return (
     <>
@@ -30,13 +52,13 @@ const Register = () => {
 
         <div className="flex flex-col my-5 w-3/4 md:w-3/5 md:h-content py-5 bg-amber-300 max-h-fit rounded-lg shadow-lg mx-auto">
         <div className="flex">
-          <div className="font-display bg-white w-content px-5 text-2xl font-bold my-2 p-1 rounded-full mx-auto text-center">
+          <div className="font-display bg-white w-content px-8 text-2xl font-bold my-2 p-1 rounded-full mx-auto text-center">
             Register
           </div>
         </div>
           <div className="form-component flex flex-col md:flex-row">
           <div className="flex flex-col">
-            <form method="post">
+            <form method="post" encType="multipart/form-data">
 
               <div className="form-div w-full flex flex-col md:flex-row">
 
@@ -53,7 +75,7 @@ const Register = () => {
                     </div>
                     <select name="gender" onChange={handleInput} className="w-full p-1 cursor-pointer rounded-lg text-center bg-white  font-display" id="">
                       <optgroup className="font-display">
-                        <option value="" selected>Select..</option>
+                        <option>Select..</option>
                         <option value="m" >Male</option>
                         <option value="f">Female</option>
                         <option value="t">Transgender</option>
@@ -143,6 +165,23 @@ const Register = () => {
                   </div>
                 </div>
 
+              </div>
+
+              <div className="img-upload">
+              <div className="m-5">
+                    <div className="username font-display w-full bg-amber-100 my-2 p-1 rounded-xl text-center">
+                      Profile Picture
+                    </div>
+                    <input
+                      type="file"
+                      id="img_upload"
+                      name="img_upload"
+                      className="w-full p-1 rounded-lg text-center font-display"
+                      onChange={(e)=>{
+                        setProfilePic(e.target.files[0])
+                      }}
+                    />
+                  </div>
               </div>
 
               <div className="mx-5">

@@ -1,7 +1,7 @@
 import axios from "axios"
 
 const petUrl = "http://localhost:3001/api/pets"
-const usrUrl = "http://localhost:3001/api/users"
+const usrUrl = "http://localhost:3001/api/user"
 
 
 const addPet = petObj =>{
@@ -16,10 +16,14 @@ const addUser = usrObj =>{
     return axios.post(usrUrl,usrObj)
 }
 
-const getUser = () => {
-    return axios.get(usrUrl)
+const getUser = (id) => {
+    return axios.get(`${usrUrl}/${id}`)
+}
+
+const loginUser = loginCreds => {
+    return axios.post(`${usrUrl}/login`,loginCreds)
 }
 
 
-const services = {addPet,getPets,addUser,getUser}
+const services = {addPet,getPets,addUser,getUser,loginUser}
 export default services 
