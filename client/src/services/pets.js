@@ -1,7 +1,7 @@
 import axios from "axios"
 
-const petUrl = "http://localhost:3001/api/pets"
-const usrUrl = "http://localhost:3001/api/user"
+const petUrl = "/api/pets"
+const usrUrl = "/api/user"
 
 
 const addPet = petObj =>{

@@ -22,6 +22,7 @@ const Pets = () => {
     <div className="pet-card h-screen font-body">
       <div className="grid grid-flow-row md:grid-cols-3 justify-items-center gap-5 h-full p-5">
         {pets.map((pet)=><PetCard pet={pet}></PetCard>)}
+
       </div>  
       </div>
 
