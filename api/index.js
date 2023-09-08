@@ -19,10 +19,10 @@ app.use(morgan("combined"))
 
 
 app.use('/api/pets',petRouter)
-app.use('/api/users',userRouter)
+app.use('/api/user',userRouter)
 
 app.use('/uploads', express.static(path.join(__dirname, '../public/uploads')));
-
+app.use('/users', express.static(path.join(__dirname, '../public/users')));
 
 app.listen(port,()=>{
     console.log(`Listening on port ${port}`)

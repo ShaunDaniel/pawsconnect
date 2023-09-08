@@ -12,7 +12,7 @@ let storage = multer.diskStorage({
         cb(null,'../public/uploads')
     },
     filename: (req,file,cb) => {
-        cb(null,`${req.body.p_name}_${req.body.o_num}.jpg`)
+        cb(null,`${req.body.img_url}`)
     }
 })
 
