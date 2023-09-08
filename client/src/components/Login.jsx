@@ -20,6 +20,8 @@ const Login = () => {
             console.log(userLogin)
             if(result){
                 localStorage.setItem("u_id",result.data[0]._id)
+                localStorage.setItem("u_name",result.data[0].u_name)
+                localStorage.setItem("contact",result.data[0].contact)
                 navigate('/')
                 window.location.reload();
             }
