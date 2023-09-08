@@ -1,15 +1,4 @@
 import mongoose from "mongoose";
-import dotenv from "dotenv"
-
-dotenv.config()
-const url = process.env.MONGO_URI
-
-mongoose.connect(url).then(() => {
-    console.log(`Connected to database!`)
-}).catch((err) => {
-    console.error(`MongoDB connection error : ${err}`)
-});
-
 
 // Schema for pet collection
 const PetSchema = {
