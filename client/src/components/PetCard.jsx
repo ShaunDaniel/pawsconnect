@@ -11,10 +11,12 @@ const PetCard = (props) => {
             alt=""
             srcSet=""
           />
-          <div className="px-6 py-4">
+
+          <div className="flex flex-col px-6 py-4">
+          <div className="rounded-full self-end w-fit  bg-amber-400 px-2 py-0.5 text-sm">{`${props.pet.age_y}y ${props.pet.age_m}mo`}</div>
+
             <div className="flex items-center justify-between">
               <h3 className="font-bold text-2xl">{props.pet.p_name}</h3>
-              <div className="rounded-full bg-amber-400 px-3 py-0.5">{`${props.pet.age_y}y ${props.pet.age_m}mo`}</div>
             </div>
 
             <div className="description">{props.pet.description}</div>

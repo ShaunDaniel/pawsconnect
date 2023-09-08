@@ -11,7 +11,7 @@ const PetAdd = (props) => {
   useEffect(() => {
     console.log("inside")
     console.log(props)
-    if(!props.isAuthenticated){
+    if(!localStorage.getItem('u_id')){
       navigate('/login')
     }
     services.getPets().then((result) => {
@@ -67,10 +67,10 @@ const PetAdd = (props) => {
         </div>
         
         <div className="w-4/5 md:w-1/3 max-w-auto">
-          <form className="bg-amber-300 shadow-md rounded px-8 pt-6 pb-8 mb-4" method="post" encType="multipart/form-data">
+          <form className="bg-amber-300 shadow-md rounded px-8 pt-6 pb-8 mb-4 font-display" method="post" encType="multipart/form-data">
             <div className="mb-4">
                 <label
-                className="block text-gray-700 font-body text-md font-bold mb-2 bg-amber-100 p-2 rounded-lg"
+                className="block text-gray-700  text-md font-bold mb-2 bg-amber-100 p-2 rounded-lg"
                 htmlFor="p_name">
                 Pet Name
                 </label>
@@ -87,7 +87,7 @@ const PetAdd = (props) => {
             <div className="flex mb-6 items-baseline">
               <label
                 htmlFor="type"
-                className="block text-gray-700 font-body text-sm font-bold mb-2  py-1 px-3 rounded-lg bg-amber-100"
+                className="block text-gray-700  text-sm font-bold mb-2  py-1 px-3 rounded-lg bg-amber-100"
               >
                 Type
               </label>
@@ -107,7 +107,7 @@ const PetAdd = (props) => {
 
               <label
                 htmlFor="sex"
-                className="block text-gray-700 font-body text-sm font-bold mb-2  py-1 px-3 rounded-lg bg-amber-100"
+                className="block text-gray-700  text-sm font-bold mb-2  py-1 px-3 rounded-lg bg-amber-100"
               >
                 Sex
               </label>
@@ -126,9 +126,9 @@ const PetAdd = (props) => {
               </select>
             </div>
 
-            <div className="block text-gray-700 font-body text-md font-bold mb-2 bg-amber-300 rounded-md  p-1">
+            <div className="block text-gray-700  text-md font-bold mb-2 bg-amber-300 rounded-md  p-1">
               <label
-                 className="block text-gray-700 font-body text-md font-bold mb-2 bg-amber-100 p-2 rounded-lg"
+                 className="block text-gray-700  text-md font-bold mb-2 bg-amber-100 p-2 rounded-lg"
                  htmlFor="petname"
               >
                 Pet Age
@@ -138,7 +138,7 @@ const PetAdd = (props) => {
             <div className="flex mb-6 items-baseline pl-2">
               <label
                 htmlFor="age_m"
-                className="block text-gray-700 font-body text-sm font-bold mb-2  py-1 px-3 rounded-lg bg-amber-100"
+                className="block text-gray-700  text-sm font-bold mb-2  py-1 px-3 rounded-lg bg-amber-100"
               >
                 Months
               </label>
@@ -168,7 +168,7 @@ const PetAdd = (props) => {
               </select>
               <label
                 htmlFor="age_y"
-                className="block text-gray-700 font-body text-sm font-bold mb-2  py-1 px-3 rounded-lg bg-amber-100"
+                className="block text-gray-700  text-sm font-bold mb-2  py-1 px-3 rounded-lg bg-amber-100"
               >
                 Years
               </label>
@@ -181,7 +181,7 @@ const PetAdd = (props) => {
               />
             </div>
 
-            <div className="block text-gray-700 font-body text-md font-bold mb-2 bg-amber-100 rounded-lg p-1">
+            <div className="block text-gray-700  text-md font-bold mb-2 bg-amber-100 rounded-lg p-1">
               <p className="mx-2">Description</p>
             </div>
             <div className="flex mb-6 ">
@@ -196,7 +196,7 @@ const PetAdd = (props) => {
             <div className="image">
               <label
                 htmlFor="img_upload"
-                className="block text-gray-700 bg-amber-100 p-1 pl-2 rounded-lg font-body text-md font-bold mb-2"
+                className="block text-gray-700 bg-amber-100 p-1 pl-2 rounded-lg  text-md font-bold mb-2"
               >
                 Upload Image
               </label>
@@ -212,7 +212,7 @@ const PetAdd = (props) => {
             </div>
             <div className="flex items-center justify-between">
               <button
-                className="w-full bg-white hover:bg-amber-100 text-gray-700 font-body font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                className="w-full bg-white hover:bg-amber-100 text-gray-700  font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                 type="button"
                 onClick={handleFormSubmit}
               >
