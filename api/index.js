@@ -32,7 +32,7 @@ app.use('/api/pets',petRouter)
 app.use('/api/user',userRouter)
 app.use('/uploads', express.static(path.join(__dirname, './public/uploads')));
 app.use('/users', express.static(path.join(__dirname, './public/users')));
-app.use(express.static(path.join(__dirname, "./client/build")));
+app.use(express.static("build"))
 app.listen(port,()=>{
     console.log(`Listening on port ${port}`)
 })
