@@ -15,7 +15,8 @@ Some screenshots-
 
 ## /pets - 
 
-![image](https://github.com/ShaunDaniel/pawsconnect/assets/73394707/d68c9963-4910-4b32-81c2-913d6dc4482b)
+![image](https://github.com/ShaunDaniel/pawsconnect/assets/73394707/6e509bdc-f937-4d39-870a-5f9aa9641ab6)
+
 
 ## /petadd
 
