@@ -8,6 +8,7 @@ const Pets = () => {
   
   useEffect(() => {
       console.log("inside effect");
+      
       services.getPets().then((result) => {
           setPets(result.data);
         })
@@ -19,7 +20,7 @@ const Pets = () => {
 
   return (
     <div className="pet-card h-screen font-body">
-      <div className="flex flex-col flex-wrap justify-around md:flex-row gap-5 p-3">
+      <div className="grid grid-flow-row md:grid-cols-3 justify-items-center gap-5 h-full p-5">
         {pets.map((pet)=><PetCard pet={pet}></PetCard>)}
       </div>  
       </div>

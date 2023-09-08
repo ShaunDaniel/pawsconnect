@@ -62,4 +62,13 @@ petRouter.get('/:id',(req,res)=>{
     });
 })
 
+petRouter.get('/mypets/:contact',(req,res)=>{
+    console.log("Inside route",req.params)
+    Pets.find({o_num:`${req.params.contact}`}).then((result) => {
+        res.json(result)
+    }).catch((err) => {
+        res.status(500).send(`Couldn't get pet data! Server error: ${err}`)
+    });
+})
+
 export default petRouter
